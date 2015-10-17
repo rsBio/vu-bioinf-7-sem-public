@@ -57,7 +57,7 @@ sub _print_arr {
             }
         if (not $n % 2){
             $direction eq "BA" and ($msg =~ y/^|/|^/);
-            $direction eq "CB" and ($msg =~ s/,$/v/, $msg =~ s/>/-/);
+            $direction eq "CB" and ($msg =~ s/,(?= )/v/, $msg =~ s/>/-/);
             $direction eq "AC" and ($msg =~ s/v/,/, $msg =~ s/\) \K-/</);
         }
     }
