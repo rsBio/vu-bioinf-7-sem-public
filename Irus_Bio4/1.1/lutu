@@ -1,0 +1,9 @@
+#!/usr/bin/Rscript
+Ftrap = read.table("data", col.names = c("x","y"))
+#Fsimp = read.table("Simpsono.txt", col.names = c("y"))
+png('Trapecijos_simpsono.png')
+plot(Ftrap$x, type='o', pch=22, col='blue')
+#lines(Fsimp$y, type='o', pch=22, lty=2, col='red')
+title(main="Integralai", col.main="red", font.main=4)
+dev.off()
+
