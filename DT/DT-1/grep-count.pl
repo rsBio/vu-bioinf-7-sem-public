@@ -14,7 +14,7 @@ my $last_attribute = ( grep /\@attribute/, @_ )[-1];
 my $count_of_last = join '', 
 	map { /{(.*?)}/xms; 0 + split ',', $1 } $last_attribute;
 
-@_ = grep /^'/, @_;
+@_ = grep m/^'/, @_;
 
 my %hA = ();
 my %hB = ();
