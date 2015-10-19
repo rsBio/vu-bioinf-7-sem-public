@@ -1,0 +1,43 @@
+#!/usr/bin/perl
+
+use warnings;
+use strict;
+
+open my $attr, '<', "attributes" or die "$0 die $!";
+open my $data, '<', "data" or die "$0 die $!";
+open my $arff, '>', "arff.arff" or die "$0 die $!";
+
+my $Attr;
+my $Data;
+
+{local $/; $Attr = <$attr>; }
+{local $/; $Data = <$data>; }
+
+my @Attr = split /^(?=\d)/ms, $Attr;
+
+my $tmp;
+@Attr = map { 
+	s/^\d+\. //ms; 
+	s/([\w\s]+)(?=:)/ $tmp = $1, $tmp =~ s!\s!_!g, $tmp /mse; $_ 
+	} @Attr;
+
+#% print @Attr;
+#% print "\n---\n";
+
+for my $i (@Attr){
+    $i =~ /class attribute/ ? do {
+        $i =~ /\w+/ms;
+        $tmp = $&;
+        $i = $tmp . ' '
+            . ( join '', map "{$_}\n", join ',', $i =~ /\n-- \K\d+/msg )
+    }
+    :
+    do { $i =~ s/:.*//ms ; $i .= " NUMERIC\n" }
+}
+
+print $arff '@RELATION glass' . "\n\n";
+print $arff @Attr = map '@ATTRIBUTE ' . $_, @Attr;
+print $arff "\n";
+print $arff '@DATA' . "\n";
+print $arff $Data;
+
