@@ -14,17 +14,17 @@ sub _bforce {
 
     for my $i (-1 .. 1){
         next if $pos + $i < 1 or $pos + $i > $right_border;
-        $curr += (split ' ', $next_lines[ $line -1 ])[$pos + $i -1];
+        $curr += @{ $next_lines[ $line -1 ] }[$pos + $i -1];
         $curr > $max and $max = $curr;
         _bforce( $pos + $i, $line + 1, $curr, $depth );
-        $curr -= (split ' ', $next_lines[ $line -1 ])[$pos + $i -1];
+        $curr -= @{ $next_lines[ $line -1 ] }[$pos + $i -1];
     }
 }
 
 while(<>){
     
     my ($first_line, $second_line, @remain) = split /\n/;
-    @next_lines = @remain;
+    @next_lines = map { [split ' '] } @remain;
     
     my ($lines, $rows, $st_pos) = split ' ', $first_line;
     $right_border = $rows;
