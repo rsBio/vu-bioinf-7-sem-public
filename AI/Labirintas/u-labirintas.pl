@@ -15,7 +15,7 @@ my $siena;  # simbolis, reiškiantis sieną
 my $keisti_siena;
 my @langeliai;  # nuorodų į langelių masyvus masyvas (dvimačiai lentai)
 my $L;  # atstumo nuo pradžios taško žymė
-my $terminaline;  # ar pasiekta terminalinė būsena
+my $ar_terminaline;  # ar pasiekta terminalinė būsena
 my $bandymu_sk;  # bandymų atlikti ėjimą skaitliukas
 my @isejimo_marsrutas; 
 
@@ -44,33 +44,32 @@ sub _spausdinti {
 }
 
 sub _spausdinti_isejima {
-    my ($term, @isejimas) = @_;
+    my ($ar_term, @isejimas) = @_;
 
-    if(not $term){
-	print "Isejimas is labirinto neegzistuoja.\n\n"
+    if(not $ar_term){
+	    print "Išėjimas iš labirinto neegzistuoja.\n\n"
 	}
     else {
-    print "Išėjimo maršrutas:\n";
-
-    while (@isejimas){
-	my ($R, $x, $y) = @{ shift @isejimas };
-	print $R, "";
-        print map "[$_] ", join ";",
-            (
-            "x=" . $x,
-            "y=" . $y,
-            );
-	;
-    }
+        print "Išėjimo maršrutas:\n";
+        
+        for my $pro_kur (@isejimas){
+	        my ($RN, $x, $y) = @{ $pro_kur };
+	        print $RN, "";
+                print map "[$_] ", join ";",
+                   (
+                    "x=" . $x,
+                    "y=" . $y,
+                 );
+        }
     
-    print "\n";
+        print "\n";
     }
     print "\n";
 }
 
+# Paieškos į gylį algoritmas.
 sub _eiti {
     my ($x, $y, $siena, $n, $m) = @_;
-#    push @isejimo_marsrutas, $x, $y;
  #%   print "eiti [y][x]: $y $x\n";
 
     # Prieš einant tikriname ar būsena yra terminalinė:
@@ -78,12 +77,12 @@ sub _eiti {
         my ($dx, $dy) = split ' ', $kryptis;
         if (not defined $langeliai[ $y + $dy ][ $x + $dx ]){
             $langeliai[ $y ][ $x ] = ++ $L;
-            $terminaline = 1;
+            $ar_terminaline = 1;
             last;
         }
     }
     
-    if ($terminaline){
+    if ($ar_terminaline){
         print "Pasiekta terminalinė būsena.\n";
         return;
     }
@@ -96,7 +95,7 @@ sub _eiti {
         $bandymu_sk ++;
         my ($dx, $dy) = split ' ', $kryptis;
                 
-        print( # spausdinamas atitraukimas
+        print(  # spausdinamas atitraukimas
 #>            (' ' x 3)
 #>            ('*' x 3)
             ('*' . ' ' x 2)
@@ -106,27 +105,27 @@ sub _eiti {
         # spausdinamos ėjimų bandymų koordinatės ir kliūtys (kai yra)
         print "R${ejimo_nr}. x=", $x + $dx, ", y=", $y + $dy, ".";
         if ($langeliai[ $y + $dy ][ $x + $dx ] ne '0'){
-            print do {
+            print map " ($_)", do {
                   if ($langeliai[ $y + $dy ][ $x + $dx ] eq $siena){
-                        " (siena)";
+                        "siena";
                   }
                   elsif ($langeliai[ $y + $dy ][ $x + $dx ] eq '-1'){
-                        " (dvigubas siūlas)";
+                        "dvigubas siūlas";
                   }
                   elsif ($langeliai[ $y + $dy ][ $x + $dx ] > 1){
-                        " (viengubas siūlas)";
+                        "viengubas siūlas";
                   }
-                }
+                };
         }
         print "\n";
 
         if ($langeliai[ $y + $dy ][ $x + $dx ] eq '0'){
-            push @isejimo_marsrutas, ["R${ejimo_nr}.", $x, $y];
+            push @isejimo_marsrutas, ["R${ejimo_nr}.", $x + $dx, $y + $dy];
             $langeliai[ $y ][ $x ] = ++ $L;
   #%          print "[$y $x: $L]\n";
             # REKURSYVUS KVIETIMAS:
             _eiti( $x + $dx, $y + $dy, $siena, $n, $m );
-            return if $terminaline;
+            return if $ar_terminaline;
         }
         else { ; }
     }
@@ -162,13 +161,14 @@ while (<>){
 
     $siena = '1';
     $L = 1;
-    $terminaline = undef;
+    $ar_terminaline = undef;
     $bandymu_sk = 0;
     @isejimo_marsrutas = ();
 
     print '-' x 40 . "\n";
 
     # 1. Spausdiname šviežią labirintą:
+    print "Pradinė labirinto būsena:\n\n";
 	_spausdinti( $n, $m );
     
     if (not defined $pradzia){ 
@@ -180,13 +180,14 @@ while (<>){
     print "Pradinė padėtis: x = ${prad_x}, y = ${prad_y}\n";
     
     # 2. Kviečiame rekursyvią labirinto apėjimo procedūrą:
-    _eiti( $prad_x, $prad_y, $siena, $n, $m );
+    _eiti( $prad_x, $prad_y, (defined $keisti_siena ? $keisti_siena : $siena), 
+        $n, $m );
 
     # 3. Spausdiname vaikščiotą labirintą:
     _spausdinti( $n, $m );
 
     # 4. Spausdiname išėjimo maršrutą:
-    _spausdinti_isejima($terminaline, @isejimo_marsrutas);
+    _spausdinti_isejima( $ar_terminaline, @isejimo_marsrutas );
 }
 
 print "Programa baigia darbą.\n";
