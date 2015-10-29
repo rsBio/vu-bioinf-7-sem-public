@@ -44,23 +44,33 @@ sub _spausdinti {
 }
 
 sub _spausdinti_isejima {
-    my @isejimas = @_;
+    my ($term, @isejimas) = @_;
 
+    if(not $term){
+	print "Isejimas is labirinto neegzistuoja.\n\n"
+	}
+    else {
     print "Išėjimo maršrutas:\n";
+
     while (@isejimas){
-        print map "[$_]", join ";",
+	my ($R, $x, $y) = @{ shift @isejimas };
+	print $R, "";
+        print map "[$_] ", join ";",
             (
-            "x=" . shift @isejimas,
-            "y=" . shift @isejimas,
-            )
+            "x=" . $x,
+            "y=" . $y,
+            );
+	;
     }
+    
     print "\n";
+    }
     print "\n";
 }
 
 sub _eiti {
     my ($x, $y, $siena, $n, $m) = @_;
-    push @isejimo_marsrutas, $x, $y;
+#    push @isejimo_marsrutas, $x, $y;
  #%   print "eiti [y][x]: $y $x\n";
 
     # Prieš einant tikriname ar būsena yra terminalinė:
@@ -111,6 +121,7 @@ sub _eiti {
         print "\n";
 
         if ($langeliai[ $y + $dy ][ $x + $dx ] eq '0'){
+            push @isejimo_marsrutas, ["R${ejimo_nr}.", $x, $y];
             $langeliai[ $y ][ $x ] = ++ $L;
   #%          print "[$y $x: $L]\n";
             # REKURSYVUS KVIETIMAS:
@@ -121,6 +132,7 @@ sub _eiti {
     }
     
     $langeliai[ $y ][ $x ] = -1;
+    pop @isejimo_marsrutas; 
     $L --;
 }
 
@@ -174,7 +186,7 @@ while (<>){
     _spausdinti( $n, $m );
 
     # 4. Spausdiname išėjimo maršrutą:
-    _spausdinti_isejima(@isejimo_marsrutas);
+    _spausdinti_isejima($terminaline, @isejimo_marsrutas);
 }
 
 print "Programa baigia darbą.\n";
