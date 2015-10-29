@@ -9,7 +9,8 @@ chomp( my $fh = <> );
 print "Įveskite lentos dydį (eilutės, stulpeliai):\n";
 chomp( my ($lines, $rows) = split ' ', <> );
 
-print "Įveskite užpildymo tankį (1 - one; 2 - quarter; 3 - half; 4 - full)\n";
+print "Įveskite užpildymo tankį " .
+       "(0 - none, 1 - one; 2 - quarter; 3 - half; 4 - full)\n";
 chomp( my $density = <> );
 
 srand ^ $$;
@@ -23,7 +24,8 @@ my $first_line = join ' ', @first_line;
 my $second_line = join ' ', @second_line;
 
 my @next_lines = map {
-        my @weights = ('1') x ( map { $rows / $_ } $rows, 4, 2, 1 )[ $density -1 ];
+        my @weights = ('1') 
+            x ( map { $rows / $_ } $rows +1, $rows, 4, 2, 1 )[ $density ];
 #%        print "@weights\n";
         for (1 .. $rows - @weights){
             splice @weights, rand 1 + @weights, 0, '0';
