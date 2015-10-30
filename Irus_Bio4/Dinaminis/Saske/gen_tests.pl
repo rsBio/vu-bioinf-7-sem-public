@@ -13,7 +13,7 @@ print "Įveskite užpildymo tankį " .
        "(0 - none, 1 - one; 2 - quarter; 3 - half; 4 - full)\n";
 chomp( my $density = <> );
 
-srand ^ $$;
+srand( time ^ $$ );
 
 my $st_pos = 1 + int rand $rows;
 my @first_line = ($lines, $rows, $st_pos);
