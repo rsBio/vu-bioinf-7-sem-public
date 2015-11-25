@@ -1,0 +1,19 @@
+TREE
+├── i
+│   ├── ppi
+│   └── ssi
+│       ├── ppi
+│       └── ssippi
+├── mississippi
+├── p
+│   ├── i
+│   └── pi
+└── s
+    ├── i
+    │   ├── ppi
+    │   └── ssippi
+    └── si
+        ├── ppi
+        └── ssippi
+
+16 directories, 0 files

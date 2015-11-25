@@ -134,9 +134,50 @@ while(<>){
     }
 
     $D =~ s/^((?:\s*\|)+) (?=\() (.*? \n) ^\1 (?=\() /$1$2$1\n$1/gmx;
-    $D =~ s/(\s*\|)\s*$//gm;
+    $D =~ s/(\s*\|)\s*?$//gm;
+    $D =~ s/\|leaf\K(?!\n)/\n/;
     
     print "$D";
 
+
+    print "-" x 30 . "\n";
+
+    $ref = \%G;
+
+    my $t = 0;
+
+    sub show {
+        my $ref = shift;
+        $t ++;
+        my @keys = keys %{ $ref };
+        for ( @keys ){
+            print '---' x $t . "[$_]\n";
+            show( ${ $ref }{ $_ } );
+        }
+        $t --;
+    }
+
+    show( $ref );
+
+    print "-" x 30 . "\n";
+
+    $ref = \%G;
+    
+    mkdir 'TREE' or die '!!\n';
+    chdir 'TREE' or die '!!\n';
+
+    sub dir_tree {
+        my $ref = shift;
+        my @keys = keys %{ $ref };
+        for ( @keys ){
+            mkdir "$_" or die '!!\n';
+            chdir "$_" or die '!!\n';
+            dir_tree( ${ $ref }{ $_ } );
+            chdir '..' or die '!!!\n';
+        }
+    }
+
+    dir_tree( $ref );
+    
 	print "\n\n";
 }
