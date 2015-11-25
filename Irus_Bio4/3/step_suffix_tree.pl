@@ -4,9 +4,12 @@ use warnings;
 use strict;
 use Data::Dumper;
 
+my $tc = 0;
+
 while(<>){
 	chomp;
     my $len = length;
+    $tc ++;
 	
 	my @preff;
 	
@@ -163,8 +166,8 @@ while(<>){
 
     $ref = \%G;
     
-    mkdir 'TREE' or die '!!\n';
-    chdir 'TREE' or die '!!\n';
+    mkdir "TREE-${tc}" or die '!!\n';
+    chdir "TREE-${tc}" or die '!!\n';
 
     sub dir_tree {
         my $ref = shift;
@@ -178,6 +181,8 @@ while(<>){
     }
 
     dir_tree( $ref );
+
+    chdir '..' or die '!!!\n';
     
 	print "\n\n";
 }

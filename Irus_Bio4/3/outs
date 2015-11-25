@@ -1,0 +1,339 @@
+$VAR1 = {
+          's' => {},
+          'b' => {
+                   'a' => {
+                            'n' => {
+                                     'a' => {
+                                              'n' => {
+                                                       'a' => {
+                                                                's' => {}
+                                                              }
+                                                     }
+                                            }
+                                   }
+                          }
+                 },
+          'a' => {
+                   's' => {},
+                   'n' => {
+                            'a' => {
+                                     'n' => {
+                                              'a' => {
+                                                       's' => {}
+                                                     }
+                                            },
+                                     's' => {}
+                                   }
+                          }
+                 },
+          'n' => {
+                   'a' => {
+                            'n' => {
+                                     'a' => {
+                                              's' => {}
+                                            }
+                                   },
+                            's' => {}
+                          }
+                 }
+        };
+ananas -> FOUND
+anas -> FOUND
+as -> FOUND
+b -> FOUND
+ba -> FOUND
+ban -> FOUND
+bana -> FOUND
+banan -> FOUND
+banana -> FOUND
+nanas -> FOUND
+nas -> FOUND
+s -> FOUND
+ae -> NOT found
+mi -> NOT found
+mis -> NOT found
+mi -> NOT found
+im -> NOT found
+
+$VAR1 = {
+          'a' => {
+                   's' => {},
+                   'na' => {
+                             's' => {},
+                             'nas' => {}
+                           }
+                 },
+          'bananas' => {},
+          's' => {},
+          'na' => {
+                    'nas' => {},
+                    's' => {}
+                  }
+        };
+------------------------------
+TREE = {
+          (7:a){
+                   (7:s)|leaf
+                   (6:na){
+                             (7:s)|leaf
+                             (5:nas)|leaf
+                           }
+                 },
+          (1:bananas)|leaf
+          (7:s)|leaf
+          (6:na){
+                    (5:nas)|leaf
+                    (7:s)|leaf
+                  }
+        };
+------------------------------
+TREE = 
+         |(7:a)
+          |       |(7:s)|leaf
+          |
+          |       |(6:na)
+          |        |        |(7:s)|leaf
+          |        |
+          |        |        |(5:nas)|leaf
+          |
+         |(1:bananas)|leaf
+         |(7:s)|leaf
+         |(6:na)
+          |        |(5:nas)|leaf
+          |
+          |        |(7:s)|leaf
+        
+------------------------------
+---[a]
+------[s]
+------[na]
+---------[s]
+---------[nas]
+---[bananas]
+---[s]
+---[na]
+------[nas]
+------[s]
+------------------------------
+
+
+$VAR1 = {
+          'p' => {
+                   'i' => {},
+                   'p' => {
+                            'i' => {}
+                          }
+                 },
+          's' => {
+                   'i' => {
+                            's' => {
+                                     's' => {
+                                              'i' => {
+                                                       'p' => {
+                                                                'p' => {
+                                                                         'i' => {}
+                                                                       }
+                                                              }
+                                                     }
+                                            }
+                                   },
+                            'p' => {
+                                     'p' => {
+                                              'i' => {}
+                                            }
+                                   }
+                          },
+                   's' => {
+                            'i' => {
+                                     's' => {
+                                              's' => {
+                                                       'i' => {
+                                                                'p' => {
+                                                                         'p' => {
+                                                                                  'i' => {}
+                                                                                }
+                                                                       }
+                                                              }
+                                                     }
+                                            },
+                                     'p' => {
+                                              'p' => {
+                                                       'i' => {}
+                                                     }
+                                            }
+                                   }
+                          }
+                 },
+          'm' => {
+                   'i' => {
+                            's' => {
+                                     's' => {
+                                              'i' => {
+                                                       's' => {
+                                                                's' => {
+                                                                         'i' => {
+                                                                                  'p' => {
+                                                                                           'p' => {
+                                                                                                    'i' => {}
+                                                                                                  }
+                                                                                         }
+                                                                                }
+                                                                       }
+                                                              }
+                                                     }
+                                            }
+                                   }
+                          }
+                 },
+          'i' => {
+                   's' => {
+                            's' => {
+                                     'i' => {
+                                              's' => {
+                                                       's' => {
+                                                                'i' => {
+                                                                         'p' => {
+                                                                                  'p' => {
+                                                                                           'i' => {}
+                                                                                         }
+                                                                                }
+                                                                       }
+                                                              }
+                                                     },
+                                              'p' => {
+                                                       'p' => {
+                                                                'i' => {}
+                                                              }
+                                                     }
+                                            }
+                                   }
+                          },
+                   'p' => {
+                            'p' => {
+                                     'i' => {}
+                                   }
+                          }
+                 }
+        };
+i -> FOUND
+ippi -> FOUND
+issippi -> FOUND
+ississippi -> FOUND
+m -> FOUND
+mi -> FOUND
+mis -> FOUND
+miss -> FOUND
+missi -> FOUND
+missis -> FOUND
+mississ -> FOUND
+mississi -> FOUND
+mississip -> FOUND
+mississipp -> FOUND
+pi -> FOUND
+ppi -> FOUND
+sippi -> FOUND
+sissippi -> FOUND
+ssippi -> FOUND
+ssissippi -> FOUND
+ae -> NOT found
+mi -> FOUND
+mis -> FOUND
+mi -> FOUND
+im -> NOT found
+
+$VAR1 = {
+          'p' => {
+                   'pi' => {},
+                   'i' => {}
+                 },
+          'mississippi' => {},
+          's' => {
+                   'i' => {
+                            'ssippi' => {},
+                            'ppi' => {}
+                          },
+                   'si' => {
+                             'ssippi' => {},
+                             'ppi' => {}
+                           }
+                 },
+          'i' => {
+                   'ppi' => {},
+                   'ssi' => {
+                              'ssippi' => {},
+                              'ppi' => {}
+                            }
+                 }
+        };
+------------------------------
+TREE = {
+          (11:p){
+                   (10:pi)|leaf
+                   (11:i)|leaf
+                 },
+          (1:mississippi)|leaf
+          (11:s){
+                   (11:i){
+                            (6:ssippi)|leaf
+                            (9:ppi)|leaf
+                          },
+                   (10:si){
+                             (6:ssippi)|leaf
+                             (9:ppi)|leaf
+                           }
+                 },
+          (11:i){
+                   (9:ppi)|leaf
+                   (9:ssi){
+                              (6:ssippi)|leaf
+                              (9:ppi)|leaf
+                            }
+                 }
+        };
+------------------------------
+TREE = 
+         |(11:p)
+          |       |(10:pi)|leaf
+          |
+          |       |(11:i)|leaf
+         |(1:mississippi)|leaf
+         |(11:s)
+          |       |(11:i)
+          |        |       |(6:ssippi)|leaf
+          |        |
+          |        |       |(9:ppi)|leaf
+          |
+          |       |(10:si)
+          |        |        |(6:ssippi)|leaf
+          |        |
+          |        |        |(9:ppi)|leaf
+          |
+         |(11:i)
+          |       |(9:ppi)|leaf
+          |
+          |       |(9:ssi)
+          |        |         |(6:ssippi)|leaf
+          |        |
+          |        |         |(9:ppi)|leaf
+          |
+        
+------------------------------
+---[p]
+------[pi]
+------[i]
+---[mississippi]
+---[s]
+------[i]
+---------[ssippi]
+---------[ppi]
+------[si]
+---------[ssippi]
+---------[ppi]
+---[i]
+------[ppi]
+------[ssi]
+---------[ssippi]
+---------[ppi]
+------------------------------
+
+
