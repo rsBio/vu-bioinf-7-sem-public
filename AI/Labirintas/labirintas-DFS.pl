@@ -147,7 +147,8 @@ while (<>){
 		@{ $langeliai[$i] } = (undef, (split ' ', <>), undef);
         my $j;
         $j = -1;
-        $j ++, s/^2$/0/ and $pradzia = "$j $i" for @{ $langeliai[$i] };
+        $j ++, $_ = (defined $_ ? $_ : 0), s/^2$/0/ and $pradzia = "$j $i"
+            for @{ $langeliai[$i] };
 ##        $j = -1;
 ##        $j ++, m/[02]/ and $kryptys[$i][$j] = 1 for @{ $langeliai[$i] };
 	}

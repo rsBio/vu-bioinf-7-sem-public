@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-## use warnings;
+use warnings;
 use strict;
 
 my @kryptys = (
@@ -154,7 +154,8 @@ while (<>){
 		@{ $langeliai[$i] } = (undef, (split ' ', <>), undef);
         my $j;
         $j = -1;
-        $j ++, s/^2$/0/ and $pradzia = "$j $i" for @{ $langeliai[$i] };
+        $j ++, $_ = (defined $_ ? $_ : 0), s/^2$/0/ and $pradzia = "$j $i"
+            for @{ $langeliai[$i] };
 
 	}
     undef @{ $langeliai[ $n + 1 ] };
