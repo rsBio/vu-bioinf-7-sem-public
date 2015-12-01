@@ -20,6 +20,8 @@ sub _gen_line{
 
 my $substr = _gen_line( $substr_width );
 
+
+print "\n";
 my @lines;
 
 for my $i (1 .. $rows){
