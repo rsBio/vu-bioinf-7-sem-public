@@ -1,0 +1,11 @@
+Pavyzdys 6.
+1) Taisyklės:
+F B Z		// F, B -> Z
+C D F		// C, D -> F
+A D		// A -> D
+
+2) Faktai:
+A B C
+
+3) Tikslas:
+C

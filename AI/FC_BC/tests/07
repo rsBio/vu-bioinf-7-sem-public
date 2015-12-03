@@ -1,0 +1,13 @@
+Pavyzdys 7.
+1) Taisyklės:
+Y D Z		// R1: Y, D -> Z
+X B E Y		// R2: X, B -> Y
+A X		// R3: A -> X
+C L		// R4: C -> L
+L M N		// R5: L, M -> N
+
+2) Faktai:
+A B C D E
+
+3) Tikslas:
+Z
