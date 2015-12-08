@@ -1,0 +1,80 @@
+
+Id3
+
+
+al = 0
+|  rbcc = '(-inf-2.69]': null
+|  rbcc = '(2.69-3.28]': null
+|  rbcc = '(3.28-3.87]': ckd
+|  rbcc = '(3.87-4.46]': ckd
+|  rbcc = '(4.46-5.05]'
+|  |  su = 0: notckd
+|  |  su = 1: null
+|  |  su = 2: null
+|  |  su = 3: null
+|  |  su = 4: null
+|  |  su = 5: ckd
+|  rbcc = '(5.05-5.64]'
+|  |  sc = '(-inf-2.17]'
+|  |  |  pe = yes: ckd
+|  |  |  pe = no: notckd
+|  |  sc = '(2.17-3.94]': null
+|  |  sc = '(3.94-5.71]': null
+|  |  sc = '(5.71-7.48]': null
+|  |  sc = '(7.48-9.25]': null
+|  |  sc = '(9.25-11.02]': null
+|  |  sc = '(11.02-12.79]': ckd
+|  |  sc = '(12.79-14.56]': null
+|  |  sc = '(14.56-16.33]': null
+|  |  sc = '(16.33-inf)': null
+|  rbcc = '(5.64-6.23]': notckd
+|  rbcc = '(6.23-6.82]': notckd
+|  rbcc = '(6.82-7.41]': null
+|  rbcc = '(7.41-inf)': null
+al = 1: ckd
+al = 2: ckd
+al = 3: ckd
+al = 4: ckd
+al = 5: ckd
+
+Time taken to build model: 0.04 seconds
+Time taken to test model on training data: 0.02 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         168               98.2456 %
+Incorrectly Classified Instances         3                1.7544 %
+Kappa statistic                          0.9641
+Mean absolute error                      0.0334
+Root mean squared error                  0.1292
+Relative absolute error                  6.8013 %
+Root relative squared error             26.082  %
+Total Number of Instances              171     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 71  3 |  a = ckd
+  0 97 |  b = notckd
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          65               87.8378 %
+Incorrectly Classified Instances         6                8.1081 %
+Kappa statistic                          0.8314
+Mean absolute error                      0.0967
+Root mean squared error                  0.2808
+Relative absolute error                 20.1223 %
+Root relative squared error             56.7199 %
+UnClassified Instances                   3                4.0541 %
+Total Number of Instances               74     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 30  6 |  a = ckd
+  0 35 |  b = notckd
+

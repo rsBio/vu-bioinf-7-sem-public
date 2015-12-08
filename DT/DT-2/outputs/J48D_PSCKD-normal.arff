@@ -1,0 +1,70 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+al = 0
+|   rbcc = '(-inf-2.69]': ckd (1.54/0.06)
+|   rbcc = '(2.69-3.28]': ckd (2.83/0.11)
+|   rbcc = '(3.28-3.87]': ckd (9.51/0.36)
+|   rbcc = '(3.87-4.46]': ckd (7.71/0.29)
+|   rbcc = '(4.46-5.05]'
+|   |   pe = yes: ckd (2.35)
+|   |   pe = no: notckd (53.96/15.63)
+|   rbcc = '(5.05-5.64]': notckd (41.14/10.58)
+|   rbcc = '(5.64-6.23]': notckd (30.34/6.59)
+|   rbcc = '(6.23-6.82]': notckd (9.0/1.66)
+|   rbcc = '(6.82-7.41]': notckd (0.0)
+|   rbcc = '(7.41-inf)': notckd (0.0)
+al = 1: ckd (31.46/0.36)
+al = 2: ckd (22.47/0.26)
+al = 3: ckd (33.7/0.38)
+al = 4: ckd (16.85/0.19)
+al = 5: ckd (1.12/0.01)
+
+Number of Leaves  : 	16
+
+Size of the tree : 	19
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training split: 0.01 seconds
+
+=== Error on training split ===
+
+Correctly Classified Instances         234               88.6364 %
+Incorrectly Classified Instances        30               11.3636 %
+Kappa statistic                          0.7704
+Mean absolute error                      0.208 
+Root mean squared error                  0.2957
+Relative absolute error                 43.8414 %
+Root relative squared error             60.7238 %
+Total Number of Instances              264     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 135  27 |   a = ckd
+   3  99 |   b = notckd
+
+
+=== Error on test split ===
+
+Correctly Classified Instances         126               92.6471 %
+Incorrectly Classified Instances        10                7.3529 %
+Kappa statistic                          0.842 
+Mean absolute error                      0.1695
+Root mean squared error                  0.257 
+Relative absolute error                 36.3106 %
+Root relative squared error             53.6467 %
+Total Number of Instances              136     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 81  7 |  a = ckd
+  3 45 |  b = notckd
+

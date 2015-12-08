@@ -1,0 +1,69 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+al = 0
+|   rbcc = '(-inf-2.69]': notckd (0.0)
+|   rbcc = '(2.69-3.28]': ckd (2.0)
+|   rbcc = '(3.28-3.87]': ckd (8.0)
+|   rbcc = '(3.87-4.46]': ckd (7.0)
+|   rbcc = '(4.46-5.05]': notckd (53.0/7.0)
+|   rbcc = '(5.05-5.64]': notckd (47.0/5.0)
+|   rbcc = '(5.64-6.23]': notckd (32.0/1.0)
+|   rbcc = '(6.23-6.82]': notckd (13.0)
+|   rbcc = '(6.82-7.41]': notckd (0.0)
+|   rbcc = '(7.41-inf)': notckd (0.0)
+al = 1: ckd (18.0)
+al = 2: ckd (20.0)
+al = 3: ckd (26.0)
+al = 4: ckd (18.0)
+al = 5: ckd (1.0)
+
+Number of Leaves  : 	15
+
+Size of the tree : 	17
+
+
+Time taken to build model: 0.05 seconds
+Time taken to test model on training data: 0.03 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         232               94.6939 %
+Incorrectly Classified Instances        13                5.3061 %
+Kappa statistic                          0.8923
+Mean absolute error                      0.094 
+Root mean squared error                  0.2168
+Relative absolute error                 18.9084 %
+Root relative squared error             43.4848 %
+Total Number of Instances              245     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 100  13 |   a = ckd
+   0 132 |   b = notckd
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         231               94.2857 %
+Incorrectly Classified Instances        14                5.7143 %
+Kappa statistic                          0.884 
+Mean absolute error                      0.0968
+Root mean squared error                  0.2256
+Relative absolute error                 19.4729 %
+Root relative squared error             45.2438 %
+Total Number of Instances              245     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  99  14 |   a = ckd
+   0 132 |   b = notckd
+

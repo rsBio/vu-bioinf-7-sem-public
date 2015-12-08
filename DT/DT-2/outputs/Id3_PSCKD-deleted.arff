@@ -1,0 +1,100 @@
+
+Id3
+
+
+rbcc = '(-inf-2.69]': ckd
+rbcc = '(2.69-3.28]': ckd
+rbcc = '(3.28-3.87]': ckd
+rbcc = '(3.87-4.46]': ckd
+rbcc = '(4.46-5.05]'
+|  al = 0
+|  |  su = 0
+|  |  |  sc = '(-inf-2.17]': notckd
+|  |  |  sc = '(2.17-3.94]': ckd
+|  |  |  sc = '(3.94-5.71]': null
+|  |  |  sc = '(5.71-7.48]': null
+|  |  |  sc = '(7.48-9.25]': null
+|  |  |  sc = '(9.25-11.02]': null
+|  |  |  sc = '(11.02-12.79]': null
+|  |  |  sc = '(12.79-14.56]': null
+|  |  |  sc = '(14.56-16.33]': null
+|  |  |  sc = '(16.33-inf)': null
+|  |  su = 1: null
+|  |  su = 2: null
+|  |  su = 3: ckd
+|  |  su = 4: null
+|  |  su = 5: ckd
+|  al = 1: ckd
+|  al = 2: ckd
+|  al = 3: ckd
+|  al = 4: null
+|  al = 5: null
+rbcc = '(5.05-5.64]'
+|  al = 0
+|  |  sc = '(-inf-2.17]': notckd
+|  |  sc = '(2.17-3.94]': null
+|  |  sc = '(3.94-5.71]': null
+|  |  sc = '(5.71-7.48]': null
+|  |  sc = '(7.48-9.25]': null
+|  |  sc = '(9.25-11.02]': null
+|  |  sc = '(11.02-12.79]': ckd
+|  |  sc = '(12.79-14.56]': null
+|  |  sc = '(14.56-16.33]': null
+|  |  sc = '(16.33-inf)': null
+|  al = 1: ckd
+|  al = 2: null
+|  al = 3: null
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(5.64-6.23]'
+|  su = 0: notckd
+|  su = 1: ckd
+|  su = 2: null
+|  su = 3: null
+|  su = 4: ckd
+|  su = 5: null
+rbcc = '(6.23-6.82]': notckd
+rbcc = '(6.82-7.41]': null
+rbcc = '(7.41-inf)': ckd
+
+Time taken to build model: 0.04 seconds
+Time taken to test model on training split: 0.01 seconds
+
+=== Error on training split ===
+
+Correctly Classified Instances         160               98.7654 %
+Incorrectly Classified Instances         2                1.2346 %
+Kappa statistic                          0.9751
+Mean absolute error                      0.0239
+Root mean squared error                  0.1092
+Relative absolute error                  4.8097 %
+Root relative squared error             21.932  %
+Total Number of Instances              162     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 72  2 |  a = ckd
+  0 88 |  b = notckd
+
+
+=== Error on test split ===
+
+Correctly Classified Instances          74               89.1566 %
+Incorrectly Classified Instances         5                6.0241 %
+Kappa statistic                          0.8699
+Mean absolute error                      0.0735
+Root mean squared error                  0.2439
+Relative absolute error                 15.592  %
+Root relative squared error             50.3049 %
+UnClassified Instances                   4                4.8193 %
+Total Number of Instances               83     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 30  5 |  a = ckd
+  0 44 |  b = notckd
+

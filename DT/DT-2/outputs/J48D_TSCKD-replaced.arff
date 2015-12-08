@@ -1,0 +1,87 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+al = 0
+|   rbcc = '(-inf-2.69]': ckd (4.0)
+|   rbcc = '(2.69-3.28]': ckd (4.0)
+|   rbcc = '(3.28-3.87]': ckd (12.0)
+|   rbcc = '(3.87-4.46]': ckd (8.0/1.0)
+|   rbcc = '(4.46-5.05]'
+|   |   pe = yes: ckd (12.0)
+|   |   pe = no
+|   |   |   su = 0
+|   |   |   |   sc = '(-inf-7.96]': notckd (95.0/39.0)
+|   |   |   |   sc = '(7.96-15.52]': ckd (2.0)
+|   |   |   |   sc = '(15.52-23.08]': notckd (0.0)
+|   |   |   |   sc = '(23.08-30.64]': ckd (1.0)
+|   |   |   |   sc = '(30.64-38.2]': notckd (0.0)
+|   |   |   |   sc = '(38.2-45.76]': notckd (0.0)
+|   |   |   |   sc = '(45.76-53.32]': ckd (1.0)
+|   |   |   |   sc = '(53.32-60.88]': notckd (0.0)
+|   |   |   |   sc = '(60.88-68.44]': notckd (0.0)
+|   |   |   |   sc = '(68.44-inf)': notckd (0.0)
+|   |   |   su = 1: notckd (0.0)
+|   |   |   su = 2: ckd (4.0)
+|   |   |   su = 3: ckd (1.0)
+|   |   |   su = 4: ckd (1.0)
+|   |   |   su = 5: ckd (1.0)
+|   rbcc = '(5.05-5.64]': notckd (49.0/5.0)
+|   rbcc = '(5.64-6.23]': notckd (36.0/1.0)
+|   rbcc = '(6.23-6.82]': notckd (14.0)
+|   rbcc = '(6.82-7.41]': notckd (0.0)
+|   rbcc = '(7.41-inf)': notckd (0.0)
+al = 1: ckd (44.0)
+al = 2: ckd (43.0)
+al = 3: ckd (43.0)
+al = 4: ckd (24.0)
+al = 5: ckd (1.0)
+
+Number of Leaves  : 	30
+
+Size of the tree : 	35
+
+
+Time taken to build model: 0.08 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         354               88.5    %
+Incorrectly Classified Instances        46               11.5    %
+Kappa statistic                          0.7683
+Mean absolute error                      0.1466
+Root mean squared error                  0.2708
+Relative absolute error                 31.2712 %
+Root relative squared error             55.9299 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 205  45 |   a = ckd
+   1 149 |   b = notckd
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         347               86.75   %
+Incorrectly Classified Instances        53               13.25   %
+Kappa statistic                          0.7353
+Mean absolute error                      0.1588
+Root mean squared error                  0.2841
+Relative absolute error                 33.8643 %
+Root relative squared error             58.6876 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 198  52 |   a = ckd
+   1 149 |   b = notckd
+

@@ -1,0 +1,73 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+al = 0
+|   rbcc = '(-inf-2.69]': ckd (2.85/0.09)
+|   rbcc = '(2.69-3.28]': ckd (3.96/0.12)
+|   rbcc = '(3.28-3.87]': ckd (12.98/0.4)
+|   rbcc = '(3.87-4.46]': ckd (10.13/1.32)
+|   rbcc = '(4.46-5.05]'
+|   |   pe = yes: ckd (3.24)
+|   |   pe = no: notckd (68.0/17.66)
+|   rbcc = '(5.05-5.64]'
+|   |   pe = yes: ckd (2.93)
+|   |   pe = no: notckd (58.57/13.09)
+|   rbcc = '(5.64-6.23]': notckd (45.04/9.07)
+|   rbcc = '(6.23-6.82]': notckd (17.18/3.08)
+|   rbcc = '(6.82-7.41]': notckd (0.0)
+|   rbcc = '(7.41-inf)': notckd (0.0)
+al = 1: ckd (49.72/0.62)
+al = 2: ckd (48.59/0.61)
+al = 3: ckd (48.59/0.61)
+al = 4: ckd (27.12/0.34)
+al = 5: ckd (1.13/0.01)
+
+Number of Leaves  : 	17
+
+Size of the tree : 	21
+
+
+Time taken to build model: 0.09 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         361               90.25   %
+Incorrectly Classified Instances        39                9.75   %
+Kappa statistic                          0.7992
+Mean absolute error                      0.1846
+Root mean squared error                  0.2756
+Relative absolute error                 39.3588 %
+Root relative squared error             56.9343 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 217  33 |   a = ckd
+   6 144 |   b = notckd
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         360               90      %
+Incorrectly Classified Instances        40               10      %
+Kappa statistic                          0.7943
+Mean absolute error                      0.1888
+Root mean squared error                  0.2814
+Relative absolute error                 40.2729 %
+Root relative squared error             58.1228 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 216  34 |   a = ckd
+   6 144 |   b = notckd
+

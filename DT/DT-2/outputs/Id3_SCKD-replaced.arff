@@ -1,0 +1,106 @@
+
+Id3
+
+
+rbcc = '(-inf-2.69]': ckd
+rbcc = '(2.69-3.28]': ckd
+rbcc = '(3.28-3.87]': ckd
+rbcc = '(3.87-4.46]'
+|  al = 0
+|  |  su = 0: ckd
+|  |  su = 1: null
+|  |  su = 2: null
+|  |  su = 3: ckd
+|  |  su = 4: null
+|  |  su = 5: null
+|  al = 1: ckd
+|  al = 2: ckd
+|  al = 3: ckd
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(4.46-5.05]'
+|  al = 0
+|  |  pe = yes: ckd
+|  |  pe = no
+|  |  |  su = 0
+|  |  |  |  sc = '(-inf-7.96]': notckd
+|  |  |  |  sc = '(7.96-15.52]': ckd
+|  |  |  |  sc = '(15.52-23.08]': null
+|  |  |  |  sc = '(23.08-30.64]': null
+|  |  |  |  sc = '(30.64-38.2]': null
+|  |  |  |  sc = '(38.2-45.76]': null
+|  |  |  |  sc = '(45.76-53.32]': null
+|  |  |  |  sc = '(53.32-60.88]': null
+|  |  |  |  sc = '(60.88-68.44]': null
+|  |  |  |  sc = '(68.44-inf)': null
+|  |  |  su = 1: null
+|  |  |  su = 2: ckd
+|  |  |  su = 3: null
+|  |  |  su = 4: ckd
+|  |  |  su = 5: ckd
+|  al = 1: ckd
+|  al = 2: ckd
+|  al = 3: ckd
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(5.05-5.64]'
+|  al = 0
+|  |  pe = yes: ckd
+|  |  pe = no: notckd
+|  al = 1: null
+|  al = 2: null
+|  al = 3: null
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(5.64-6.23]'
+|  su = 0: notckd
+|  su = 1: ckd
+|  su = 2: null
+|  su = 3: null
+|  su = 4: ckd
+|  su = 5: null
+rbcc = '(6.23-6.82]': notckd
+rbcc = '(6.82-7.41]': null
+rbcc = '(7.41-inf)': ckd
+
+Time taken to build model: 0.06 seconds
+Time taken to test model on training data: 0.03 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         253               90.3571 %
+Incorrectly Classified Instances        27                9.6429 %
+Kappa statistic                          0.8032
+Mean absolute error                      0.1236
+Root mean squared error                  0.2486
+Relative absolute error                 26.4522 %
+Root relative squared error             51.4446 %
+Total Number of Instances              280     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 150  26 |   a = ckd
+   1 103 |   b = notckd
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          98               81.6667 %
+Incorrectly Classified Instances        17               14.1667 %
+Kappa statistic                          0.7099
+Mean absolute error                      0.1549
+Root mean squared error                  0.3012
+Relative absolute error                 34.0676 %
+Root relative squared error             62.6973 %
+UnClassified Instances                   5                4.1667 %
+Total Number of Instances              120     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 52 17 |  a = ckd
+  0 46 |  b = notckd
+

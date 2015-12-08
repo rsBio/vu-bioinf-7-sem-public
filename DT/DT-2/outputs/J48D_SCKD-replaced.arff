@@ -1,0 +1,76 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+al = 0
+|   rbcc = '(-inf-2.69]': ckd (4.0)
+|   rbcc = '(2.69-3.28]': ckd (4.0)
+|   rbcc = '(3.28-3.87]': ckd (9.0)
+|   rbcc = '(3.87-4.46]': ckd (6.0/1.0)
+|   rbcc = '(4.46-5.05]'
+|   |   pe = yes: ckd (10.0)
+|   |   pe = no
+|   |   |   su = 0: notckd (67.0/26.0)
+|   |   |   su = 1: notckd (0.0)
+|   |   |   su = 2: ckd (3.0)
+|   |   |   su = 3: notckd (0.0)
+|   |   |   su = 4: ckd (1.0)
+|   |   |   su = 5: ckd (1.0)
+|   rbcc = '(5.05-5.64]': notckd (35.0/2.0)
+|   rbcc = '(5.64-6.23]': notckd (21.0/1.0)
+|   rbcc = '(6.23-6.82]': notckd (9.0)
+|   rbcc = '(6.82-7.41]': notckd (0.0)
+|   rbcc = '(7.41-inf)': notckd (0.0)
+al = 1: ckd (32.0)
+al = 2: ckd (27.0)
+al = 3: ckd (33.0)
+al = 4: ckd (18.0)
+al = 5: ckd (0.0)
+
+Number of Leaves  : 	21
+
+Size of the tree : 	25
+
+
+Time taken to build model: 0.06 seconds
+Time taken to test model on training data: 0.03 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         250               89.2857 %
+Incorrectly Classified Instances        30               10.7143 %
+Kappa statistic                          0.7825
+Mean absolute error                      0.1399
+Root mean squared error                  0.2645
+Relative absolute error                 29.9398 %
+Root relative squared error             54.7309 %
+Total Number of Instances              280     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 147  29 |   a = ckd
+   1 103 |   b = notckd
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          99               82.5    %
+Incorrectly Classified Instances        21               17.5    %
+Kappa statistic                          0.6593
+Mean absolute error                      0.1806
+Root mean squared error                  0.3146
+Relative absolute error                 38.4037 %
+Root relative squared error             64.697  %
+Total Number of Instances              120     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 53 21 |  a = ckd
+  0 46 |  b = notckd
+

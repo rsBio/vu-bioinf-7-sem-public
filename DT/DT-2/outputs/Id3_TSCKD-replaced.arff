@@ -1,0 +1,123 @@
+
+Id3
+
+
+rbcc = '(-inf-2.69]': ckd
+rbcc = '(2.69-3.28]': ckd
+rbcc = '(3.28-3.87]': ckd
+rbcc = '(3.87-4.46]'
+|  al = 0
+|  |  su = 0: ckd
+|  |  su = 1: null
+|  |  su = 2: null
+|  |  su = 3: ckd
+|  |  su = 4: ckd
+|  |  su = 5: null
+|  al = 1: ckd
+|  al = 2: ckd
+|  al = 3: ckd
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(4.46-5.05]'
+|  al = 0
+|  |  pe = yes: ckd
+|  |  pe = no
+|  |  |  su = 0
+|  |  |  |  sc = '(-inf-7.96]': notckd
+|  |  |  |  sc = '(7.96-15.52]': ckd
+|  |  |  |  sc = '(15.52-23.08]': null
+|  |  |  |  sc = '(23.08-30.64]': ckd
+|  |  |  |  sc = '(30.64-38.2]': null
+|  |  |  |  sc = '(38.2-45.76]': null
+|  |  |  |  sc = '(45.76-53.32]': ckd
+|  |  |  |  sc = '(53.32-60.88]': null
+|  |  |  |  sc = '(60.88-68.44]': null
+|  |  |  |  sc = '(68.44-inf)': null
+|  |  |  su = 1: null
+|  |  |  su = 2: ckd
+|  |  |  su = 3: ckd
+|  |  |  su = 4: ckd
+|  |  |  su = 5: ckd
+|  al = 1: ckd
+|  al = 2: ckd
+|  al = 3: ckd
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(5.05-5.64]'
+|  al = 0
+|  |  su = 0
+|  |  |  sc = '(-inf-7.96]'
+|  |  |  |  pe = yes: ckd
+|  |  |  |  pe = no: notckd
+|  |  |  sc = '(7.96-15.52]': ckd
+|  |  |  sc = '(15.52-23.08]': null
+|  |  |  sc = '(23.08-30.64]': null
+|  |  |  sc = '(30.64-38.2]': null
+|  |  |  sc = '(38.2-45.76]': null
+|  |  |  sc = '(45.76-53.32]': null
+|  |  |  sc = '(53.32-60.88]': null
+|  |  |  sc = '(60.88-68.44]': null
+|  |  |  sc = '(68.44-inf)': null
+|  |  su = 1: null
+|  |  su = 2: null
+|  |  su = 3: null
+|  |  su = 4: ckd
+|  |  su = 5: null
+|  al = 1: ckd
+|  al = 2: null
+|  al = 3: null
+|  al = 4: ckd
+|  al = 5: null
+rbcc = '(5.64-6.23]'
+|  su = 0: notckd
+|  su = 1: ckd
+|  su = 2: null
+|  su = 3: null
+|  su = 4: ckd
+|  su = 5: null
+rbcc = '(6.23-6.82]': notckd
+rbcc = '(6.82-7.41]': null
+rbcc = '(7.41-inf)': ckd
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         358               89.5    %
+Incorrectly Classified Instances        42               10.5    %
+Kappa statistic                          0.7873
+Mean absolute error                      0.1287
+Root mean squared error                  0.2537
+Relative absolute error                 27.4425 %
+Root relative squared error             52.3942 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 209  41 |   a = ckd
+   1 149 |   b = notckd
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         344               86      %
+Incorrectly Classified Instances        47               11.75   %
+Kappa statistic                          0.7594
+Mean absolute error                      0.1455
+Root mean squared error                  0.2816
+Relative absolute error                 31.6067 %
+Root relative squared error             58.5635 %
+UnClassified Instances                   9                2.25   %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 195  46 |   a = ckd
+   1 149 |   b = notckd
+

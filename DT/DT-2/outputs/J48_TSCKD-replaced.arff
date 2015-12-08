@@ -1,0 +1,69 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+sc <= 1.2
+|   pe = yes: ckd (14.0)
+|   pe = no
+|   |   al = 0
+|   |   |   su = 0: notckd (158.0/13.0)
+|   |   |   su = 1: notckd (0.0)
+|   |   |   su = 2: notckd (0.0)
+|   |   |   su = 3: notckd (0.0)
+|   |   |   su = 4: ckd (3.0)
+|   |   |   su = 5: ckd (1.0)
+|   |   al = 1: ckd (6.0)
+|   |   al = 2: ckd (3.0)
+|   |   al = 3: ckd (3.0)
+|   |   al = 4: ckd (2.0)
+|   |   al = 5: notckd (0.0)
+sc > 1.2: ckd (210.0/5.0)
+
+Number of Leaves  : 	13
+
+Size of the tree : 	17
+
+
+Time taken to build model: 0.1 seconds
+Time taken to test model on training data: 0.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         382               95.5    %
+Incorrectly Classified Instances        18                4.5    %
+Kappa statistic                          0.905 
+Mean absolute error                      0.0841
+Root mean squared error                  0.205 
+Relative absolute error                 17.9261 %
+Root relative squared error             42.3463 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 237  13 |   a = ckd
+   5 145 |   b = notckd
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         374               93.5    %
+Incorrectly Classified Instances        26                6.5    %
+Kappa statistic                          0.8624
+Mean absolute error                      0.0915
+Root mean squared error                  0.2367
+Relative absolute error                 19.5222 %
+Root relative squared error             48.8939 %
+Total Number of Instances              400     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 234  16 |   a = ckd
+  10 140 |   b = notckd
+

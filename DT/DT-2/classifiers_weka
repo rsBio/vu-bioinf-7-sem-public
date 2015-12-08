@@ -1,0 +1,32 @@
+#!/bin/sh
+## Būtina prideti 2 direktorijas Resample ir outputs
+## Leidžiama ./classifiers_weka input.arff
+for line in $@
+do
+	echo $line."\n";
+	## Resample 70 ir 30
+	java -cp /usr/share/java/weka.jar weka.filters.unsupervised.instance.Resample -S 1  -Z 70.0 -no-replacement -V -i $line -o Resample/30$line
+	java -cp /usr/share/java/weka.jar weka.filters.unsupervised.instance.Resample -S 1  -Z 70.0 -no-replacement -i $line -o Resample/70$line
+	java -cp /usr/share/java/weka.jar weka.filters.unsupervised.attribute.Discretize -B 10 -M 1.0 -R first-last -i $line -o Discrete$line
+	java -cp /usr/share/java/weka.jar weka.filters.unsupervised.instance.Resample -S 1  -Z 70.0 -no-replacement -V -i Discrete$line -o Resample/30D$line
+	java -cp /usr/share/java/weka.jar weka.filters.unsupervised.instance.Resample -S 1  -Z 70.0 -no-replacement -i Discrete$line -o Resample/70D$line
+	
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t $line > outputs/J48_TS$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t Resample/70$line -T Resample/30$line > outputs/J48_S$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t $line -x 10 > outputs/J48_CV$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t $line -split-percentage 66 > outputs/J48_PS$line
+
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t Discrete$line > outputs/J48D_TS$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t Resample/70D$line -T Resample/30D$line > outputs/J48D_S$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t Discrete$line -x 10 > outputs/J48D_CV$line
+	java -cp /usr/share/java/weka.jar weka.classifiers.trees.J48 -C 0.25 -M 2 -t Discrete$line -split-percentage 66 > outputs/J48D_PS$line
+
+	if [ "$line" != "CKD-normal.arff" ]
+	then
+		java -cp /usr/share/java/weka.jar weka.classifiers.trees.Id3 -t Discrete$line > outputs/Id3_TS$line
+		java -cp /usr/share/java/weka.jar weka.classifiers.trees.Id3 -t Resample/70D$line -T Resample/30D$line > outputs/Id3_S$line
+		java -cp /usr/share/java/weka.jar weka.classifiers.trees.Id3 -t Discrete$line -x 10 > outputs/Id3_CV$line	
+		java -cp /usr/share/java/weka.jar weka.classifiers.trees.Id3 -t Discrete$line -split-percentage 66 > outputs/Id3_PS$line
+	fi
+done
+

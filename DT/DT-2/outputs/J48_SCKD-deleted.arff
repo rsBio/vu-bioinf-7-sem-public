@@ -1,0 +1,56 @@
+
+Options: -C 0.25 -M 2 
+
+J48 pruned tree
+------------------
+
+sc <= 1.2
+|   pe = yes: ckd (3.0)
+|   pe = no: notckd (101.0/4.0)
+sc > 1.2: ckd (67.0)
+
+Number of Leaves  : 	3
+
+Size of the tree : 	5
+
+
+Time taken to build model: 0.05 seconds
+Time taken to test model on training data: 0.02 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         167               97.6608 %
+Incorrectly Classified Instances         4                2.3392 %
+Kappa statistic                          0.952 
+Mean absolute error                      0.0449
+Root mean squared error                  0.1499
+Relative absolute error                  9.1498 %
+Root relative squared error             30.2518 %
+Total Number of Instances              171     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 70  4 |  a = ckd
+  0 97 |  b = notckd
+
+
+=== Error on test data ===
+
+Correctly Classified Instances          67               90.5405 %
+Incorrectly Classified Instances         7                9.4595 %
+Kappa statistic                          0.8122
+Mean absolute error                      0.1096
+Root mean squared error                  0.2966
+Relative absolute error                 21.7596 %
+Root relative squared error             58.3986 %
+Total Number of Instances               74     
+
+
+=== Confusion Matrix ===
+
+  a  b   <-- classified as
+ 32  7 |  a = ckd
+  0 35 |  b = notckd
+
