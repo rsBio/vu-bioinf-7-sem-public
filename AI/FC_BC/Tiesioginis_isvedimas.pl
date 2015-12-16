@@ -42,7 +42,6 @@ while( $R < @$productions
   print " " x 4 . ($R + 1) . "." . " " . "Taisyklė "
         . '"' . produkcijos_aprasas( $productions->[$R], $R + 1 ) . '"';
 
-#%  print $_->{'flag'}, $/ for @$productions;
   if( $productions->[$R]->{'flag'} ){
         print " netaikoma, nes pažymėta 'flag1'.\n";
         $R++;
