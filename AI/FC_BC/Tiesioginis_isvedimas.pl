@@ -15,6 +15,7 @@ print "Programa pradeda darbą." .
 #        hash : begin
 #          premises   => array of char
 #          conclusion => char
+#          flag => byte
 #        end
 #   2) assertion_list : array of char
 #   3) goal : char
@@ -38,8 +39,15 @@ while( $R < @$productions
         $skyrimo_linija ++ and print "-" x 20 . "\n";
         print "Iteracija nr. " . $move_number . ":\n";
     }
-  print " " x 4 . ($R + 1) . "." . " " . "Nagrinėjama taisyklė: "
-        . '"' . produkcijos_aprasas( $productions->[$R], $R + 1 ) . '"' . ".";
+  print " " x 4 . ($R + 1) . "." . " " . "Taisyklė "
+        . '"' . produkcijos_aprasas( $productions->[$R], $R + 1 ) . '"';
+
+#%  print $_->{'flag'}, $/ for @$productions;
+  if( $productions->[$R]->{'flag'} ){
+        print " netaikoma, nes pažymėta 'flag1'.\n";
+        $R++;
+        next;
+    }
 
   if( ar_posarasis( $assertion_list, $productions->[$R]->{'premises'} ) )   # { 4}
     {                                                      	                # { 5}
@@ -47,20 +55,20 @@ while( $R < @$productions
         {                                                                   # { 7}
           push( @$assertion_list, 
                 $productions->[$R]->{'conclusion'} );    	                # { 8}
-          print " Taikoma.";
+          print " taikoma ir pažymima 'flag1'.";
           print " " x 1 . "Faktų aibė po pritaikymo: {" 
             . join( ", ", @$assertion_list ) . "}\n";
           push( @result, "R" . ( $R + 1 ) );
+          $productions->[$R]->{'flag'} = 1;
           $R = 0; $move_number ++;		         	                        # { 9}
         }                                                                   # {10}
-        else { 
-            printf " Netaikoma, nes 'išvada' (%s) jau yra sąraše.\n", 
-                $productions->[$R]->{'conclusion'};
+        else {
+            print " netaikoma, nes toks faktas jau yra.\n";
             $R++;                                                           # {11}
         }
     }                                                    	                # {12}
     else { 
-        printf " Netaikoma, nes nėra 'prerekvizito' (%s) sąraše.\n",
+        printf " netaikoma, nes nėra 'prerekvizito' (%s) sąraše.\n",
             kurio_nera( $assertion_list, $productions->[$R]->{'premises'} );
         $R++;                                                               # {13}
     }
@@ -98,7 +106,7 @@ sub nuskaityti_is_failo
         my $conclusion = pop @production;
         # Į masyvo pabaigą pridedamas įrašas, atitinkantis produkciją
         push( @productions, 
-            { 'premises' => \@production, 'conclusion' => $conclusion } 
+            { 'premises' => \@production, 'conclusion' => $conclusion, 'flag' => 0 } 
         );
     }
 
