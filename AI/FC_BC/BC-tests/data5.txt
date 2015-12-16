@@ -1,0 +1,17 @@
+5 testas.
+---------------------
+Taisykles:
+F B
+E G
+D Z
+C D
+A G
+A B
+B C
+G Z
+---------------------
+Faktai:
+A
+---------------------
+Tikslas:
+Z
