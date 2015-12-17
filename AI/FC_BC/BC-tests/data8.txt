@@ -1,4 +1,4 @@
-7 testas.
+8 testas.
 ---------------------
 Taisyklės:
 Y D Z

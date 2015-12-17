@@ -1,4 +1,4 @@
-7 testas.
+8 testas.
 ---------------------
 1) Taisyklės:
 Y D Z		// R1: Y, D -> Z
