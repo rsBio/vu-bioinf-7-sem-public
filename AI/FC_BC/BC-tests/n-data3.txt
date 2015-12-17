@@ -1,0 +1,18 @@
+3 testas.
+---------------------
+1) Taisyklės:
+C D Z		// R1: C, D -> Z
+C D		// R2: C -> D
+B C		// R3: B -> C
+A B		// R4: A -> B
+D A		// R5: D -> A
+T D		// R6: T -> D
+G A		// R7: G -> A
+H B		// R8: H -> B
+J C		// R9: J -> C
+---------------------
+2) Faktai:
+T
+---------------------
+3) Tikslas:
+Z

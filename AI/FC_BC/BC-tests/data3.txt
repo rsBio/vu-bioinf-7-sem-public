@@ -1,6 +1,6 @@
 3 testas.
 ---------------------
-Taisykles:
+Taisyklės:
 C D Z
 C D
 B C

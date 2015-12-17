@@ -1,6 +1,6 @@
 1 testas.
 ---------------------
-Taisykles:
+Taisyklės:
 F B Z
 C D F
 A D

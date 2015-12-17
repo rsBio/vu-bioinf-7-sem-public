@@ -1,6 +1,6 @@
 6 testas.
 ---------------------
-Taisykles:
+Taisyklės:
 C D Z
 T C
 T Z

@@ -1,6 +1,6 @@
 7 testas.
 ---------------------
-Taisykles:
+Taisyklės:
 Y D Z
 X B E Y
 A X
