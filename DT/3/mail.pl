@@ -11,14 +11,19 @@ print $out "\@RELATION mail\n\n";
 my $iter1 = 1;
 my @attr;
 
-##	my $class = shift @ARGV;
+my $class;
+
+# ISKVIETIMAS: perl mail.pl 1 Blogi/* 0 Geri/*
 
 foreach my $name (@ARGV) {
-	open my $file, "<", $name or die "$0:$name:$!\n";
-	$_ = do {local $/; <$file>};
-	
-	$name =~ m/mail_(\d)/;
-	my $class = $1;
+
+	# Failo vardas neturetu buti '1' arba '0'!!
+	if ($name eq '1'){$class = '1'; next}
+	elsif ($name eq '0'){$class = '0'; next}
+	else {
+		open my $file, "<", $name or die "$0:$name:$!\n";
+		$_ = do {local $/; <$file>};
+	}
 
 	my @csv_line;
 	my %h;
@@ -86,7 +91,7 @@ foreach my $name (@ARGV) {
 
 #--------------------
 	my @spam_words;
-	push @spam_words, qw[ nuolaida akcija dovana laimėjote nemokamai prizas milijonas ];
+	push @spam_words, qw[ nuolaida akcija dovana nemokamai prizas milijonas ];
 	push @spam_words, qw[ discount prize won million ];
 	push @spam_words, qw[ viagra penis enlarge sex ];
 	push @spam_words, qw[ help Africa poverty ];
