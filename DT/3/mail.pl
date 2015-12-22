@@ -18,7 +18,7 @@ foreach my $name (@ARGV) {
 	$_ = do {local $/; <$file>};
 	
 	$name =~ m/mail_(\d)/;
-	my $class = $&;
+	my $class = $1;
 
 	my @csv_line;
 	my %h;
