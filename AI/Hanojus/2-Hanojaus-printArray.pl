@@ -6,7 +6,8 @@ use strict;
 my %hash;
 
 sub _arrays {
-    map "{$_}\n", join ', ', map "($_)", map { join ',', @{ $hash{ $_ } } } 'A' .. 'C';    
+    map "{$_}\n", join ', ', map "($_)", 
+        map { join ',', @{ $hash{ $_ } } } 'A' .. 'C';    
     }
 
 my $it;
@@ -16,7 +17,8 @@ sub _say {
     my ($nuo, $ant, $n) = @_;
     push @{ $hash{ $ant } }, pop @{ $hash{ $nuo } };
     $it ++;
-    push @output, "${it}: Nuo virbo ${nuo} perkelti ant virbo ${ant}.[$n]\n";
+    push @output, 
+        "${it}: Nuo virbo ${nuo} perkelti ant virbo ${ant}.[$n]\n";
     push @output, _arrays, "\n";
     }
 
@@ -37,7 +39,8 @@ print "[Autorius: Robertas Stankevic, bioinformatikos IV k.]\n";
 
 while( my $n = <> ){
     chomp $n;
-    print "Parametras 'n' ($n) iseina is reziu [1;10]" and next if $n < 1 or $n > 10;
+    print "Parametras 'n' ($n) iseina is reziu [1;10]" and 
+        next if $n < 1 or $n > 10;
     map { $hash{$_} = [] } 'A' .. 'C';
     @{ $hash{ 'A' } } = reverse 1 .. $n;
     $it = 0;
