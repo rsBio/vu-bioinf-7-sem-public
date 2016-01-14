@@ -43,17 +43,22 @@ sub _print_arr {
     if ($kiek == 2){
         if ($direction =~ /AB|BA/){
             $msg =~ s/\) *\n   \K / '|' /mse;
-            $msg =~ s/    \n *\Z/ "^   \n   '" . '-' x ($l_all-4) . "'   " /mse;
+            $msg =~ s/    \n *\Z/ 
+                "^   \n   '" . '-' x ($l_all-4) . "'   " /mse;
             }
         if ($direction =~ /BC|CB/){
             $msg =~ s/ (?= A)/|/ms;
-            $msg =~ s/ *(?= C)/ ($change = $&) =~ s! !-!gr =~ s!-$!>!r =~ s!-!'!r /mse;
-            $msg =~ s/ +(?=   )/ ($change = $&) =~ s! !-!gr =~ s!-$!,!r =~ s!-!,!r /mse;
+            $msg =~ s/ *(?= C)/ 
+                ($change = $&) =~ s! !-!gr =~ s!-$!>!r =~ s!-!'!r /mse;
+            $msg =~ s/ +(?=   )/ 
+                ($change = $&) =~ s! !-!gr =~ s!-$!,!r =~ s!-!,!r /mse;
             }
         if ($direction =~ /CA|AC/){
             $msg =~ s/\)\K  $/ |/ms;
-            $msg =~ s/\) \K +$/ ($change = $&) =~ s! !-!gr =~ s!-$!'!r /mse;
-            $msg =~ s/   \K +/ ($change = $&) =~ s! !-!gr =~ s!-$!,!r =~ s!-!v!r /mse;
+            $msg =~ s/\) \K +$/ 
+                ($change = $&) =~ s! !-!gr =~ s!-$!'!r /mse;
+            $msg =~ s/   \K +/ 
+                ($change = $&) =~ s! !-!gr =~ s!-$!,!r =~ s!-!v!r /mse;
             }
         if (not $n % 2){
             $direction eq "BA" and ($msg =~ y/^|/|^/);
@@ -63,13 +68,16 @@ sub _print_arr {
     }
     else {
         if ($direction =~ /AB|BA/){
-            $msg =~ s/\) \K\s+\B/ ($change = $&) =~ s! !-!gr =~ s!-$!>!r /mse;
+            $msg =~ s/\) \K\s+\B/ 
+                ($change = $&) =~ s! !-!gr =~ s!-$!>!r /mse;
             }
         if ($direction =~ /BC|CB/){
-            $msg =~ s/.*\) \K +/ '<' . '-' x ($l_arr[1]-4) . "'" . ' ' x 3 /mse;
+            $msg =~ s/.*\) \K +/ 
+                '<' . '-' x ($l_arr[1]-4) . "'" . ' ' x 3 /mse;
             }
         if ($direction =~ /CA|AC/){
-            $msg =~ s/ +(?=C)/ ' ' x 3 . '^' . '-' x ($l_arr[0]-3) . ' ' x 1 /mse;
+            $msg =~ s/ +(?=C)/ 
+                ' ' x 3 . '^' . '-' x ($l_arr[0]-3) . ' ' x 1 /mse;
             }
         if ($n % 2){
             $direction eq "BA" and ($msg =~ s/-/</, $msg =~ s/>/-/);
@@ -87,7 +95,8 @@ sub _print_arr {
 for ( 1 ){
     $n = <>;
     chomp $n;   
-    print "Programa pradeda darba.\nAutorius: Robertas Stankevic, IV k. bioinformatika.\n";
+    print "Programa pradeda darba.\n" 
+        . "Autorius: Robertas Stankevic, IV k. bioinformatika.\n";
 
     # 1. Tikrinamas ivestojo n lyginumas
     print "Ivesta n = ${n} yra ", ('', 'NE')[ $n % 2 ], "LYGINIS, ";
