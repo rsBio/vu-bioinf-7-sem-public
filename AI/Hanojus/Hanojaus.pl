@@ -6,7 +6,8 @@ use strict;
 my %hash;
 
 sub _arrays {
-    map "{$_}\n", join ', ', map "($_)", map { join ',', @{ $hash{ $_ } } } 'A' .. 'C';    
+    map "{$_}\n", join ', ', map "($_)", 
+        map { join ',', @{ $hash{ $_ } } } 'A' .. 'C';    
     }
 
 my $it;
@@ -36,7 +37,8 @@ print "[Autorius: Robertas Stankevic, bioinformatikos IV k.]\n";
 
 while( my $n = <> ){
     chomp $n;
-    print "Parametras 'n' ($n) iseina is reziu [1;10]" and next if $n < 1 or $n > 10;
+    print "Parametras 'n' ($n) iseina is reziu [1;10]" and 
+        next if $n < 1 or $n > 10;
     map { $hash{$_} = [] } 'A' .. 'C';
     @{ $hash{ 'A' } } = reverse 1 .. $n;
     $it = 0;
